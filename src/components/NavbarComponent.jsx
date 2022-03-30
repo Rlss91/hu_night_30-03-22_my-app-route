@@ -1,4 +1,6 @@
-const linksArr = ["Home", "Contact", "About us"];
+import { NavLink } from "react-router-dom";
+
+const linksArr = ["Home", "Contact", "About us", "Login"];
 
 const NavbarComponent = () => {
   return (
@@ -6,9 +8,9 @@ const NavbarComponent = () => {
       {linksArr.map((item, idx) => {
         return (
           <li className="nav-item" key={idx}>
-            <a className="nav-link" aria-current="page" href="#">
+            <NavLink className="nav-link" aria-current="page" to={`/${item}`}>
               {item}
-            </a>
+            </NavLink>
           </li>
         );
       })}

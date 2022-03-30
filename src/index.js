@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import { BrowserRouter } from "react-router-dom";
 
 // add bootstrap to react
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -24,7 +25,9 @@ axios.interceptors.request.use((config) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
