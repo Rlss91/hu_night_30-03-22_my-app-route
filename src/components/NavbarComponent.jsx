@@ -8,7 +8,11 @@ const NavbarComponent = () => {
       {linksArr.map((item, idx) => {
         return (
           <li className="nav-item" key={idx}>
-            <NavLink className="nav-link" aria-current="page" to={`/${item}`}>
+            <NavLink
+              className="nav-link"
+              aria-current="page"
+              to={`/${item.toLowerCase()}`}
+            >
               {item}
             </NavLink>
           </li>

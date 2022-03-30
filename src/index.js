@@ -17,8 +17,10 @@ import reportWebVitals from "./reportWebVitals";
 axios.defaults.baseURL = "http://localhost:3003/api";
 
 axios.interceptors.request.use((config) => {
-  config.headers["x-user-token"] =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwOThmMzczZTE4ODgyM2FlY2Q5NDEiLCJiaXoiOnRydWUsImlhdCI6MTY0ODQwMjIyNH0.EepyQ0AJZ-qlA3qs55kdJc8ia5JAYeFKdp27r_FHNa0";
+  const token = localStorage.getItem("tokenKey");
+  if (token) {
+    config.headers["x-user-token"] = token;
+  }
   config.headers["Content-Type"] = "application/json";
   return config;
 });

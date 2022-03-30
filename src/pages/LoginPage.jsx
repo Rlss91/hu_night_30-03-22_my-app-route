@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const LoginPage = () => {
   const [emailInput, setEmailInput] = useState("");
@@ -13,6 +15,22 @@ const LoginPage = () => {
   const handleSubmit = (ev) => {
     //prevent refresh because react alerjic to refresh
     ev.preventDefault();
+    axios
+      .post("/auth", { email: emailInput, password: passwordInput })
+      .then((response) => {
+        console.log("response", response);
+        localStorage.setItem("tokenKey", response.data.token);
+      })
+      .catch((err) => {
+        console.log("err.request", err.request);
+        if (err.response) {
+          toast(err.response.data);
+        } else if (err.request) {
+          toast("Something went wrong");
+        } else {
+          toast("Something went wrong");
+        }
+      });
   };
 
   return (
