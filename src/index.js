@@ -14,13 +14,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 //axios config
+//axios will add this url to each request if the url is not full
 axios.defaults.baseURL = "http://localhost:3003/api";
 
+//axios will add this config to each request
 axios.interceptors.request.use((config) => {
+  //get token from local storage
   const token = localStorage.getItem("tokenKey");
+  //chack if there is token in local storage
   if (token) {
+    //add token to headers for secure routes
     config.headers["x-user-token"] = token;
   }
+  //data format
   config.headers["Content-Type"] = "application/json";
   return config;
 });

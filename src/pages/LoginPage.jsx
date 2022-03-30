@@ -15,17 +15,21 @@ const LoginPage = () => {
   const handleSubmit = (ev) => {
     //prevent refresh because react alerjic to refresh
     ev.preventDefault();
+    //send http post request to the server with body (email, password)
     axios
       .post("/auth", { email: emailInput, password: passwordInput })
       .then((response) => {
         console.log("response", response);
+        //save token from server to local storage
         localStorage.setItem("tokenKey", response.data.token);
       })
       .catch((err) => {
         console.log("err.request", err.request);
         if (err.response) {
+          //error from server
           toast(err.response.data);
         } else if (err.request) {
+          //error if server not responding
           toast("Something went wrong");
         } else {
           toast("Something went wrong");

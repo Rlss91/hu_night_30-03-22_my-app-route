@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="container">
       <NavbarComponent />
+      {/* will popup toast alerts here */}
       <ToastContainer />
       <Switch>
         {/*http://localhost:3000/ */}
