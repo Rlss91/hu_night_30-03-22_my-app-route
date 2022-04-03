@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import axios from "axios";
+
+import { authActions } from "../store/auth.redux";
 
 const LoginPage = () => {
   const [emailInput, setEmailInput] = useState("");
@@ -10,6 +13,9 @@ const LoginPage = () => {
 
   //routes
   const history = useHistory();
+
+  //redux
+  const dispatch = useDispatch();
 
   const handleEmailChange = (ev) => {
     setEmailInput(ev.target.value);
@@ -27,6 +33,7 @@ const LoginPage = () => {
         console.log("response", response);
         //save token from server to local storage
         localStorage.setItem("tokenKey", response.data.token);
+        dispatch(authActions.login());
         history.push("/cardspanel");
       })
       .catch((err) => {
