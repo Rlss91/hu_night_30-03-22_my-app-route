@@ -1,5 +1,4 @@
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import NavbarItemComponent from "./partial/NavbarItemComponent";
 
