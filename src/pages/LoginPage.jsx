@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+
+  //routes
+  const history = useHistory();
 
   const handleEmailChange = (ev) => {
     setEmailInput(ev.target.value);
@@ -22,6 +26,7 @@ const LoginPage = () => {
         console.log("response", response);
         //save token from server to local storage
         localStorage.setItem("tokenKey", response.data.token);
+        history.push("/cardspanel");
       })
       .catch((err) => {
         console.log("err.request", err.request);

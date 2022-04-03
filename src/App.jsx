@@ -5,6 +5,7 @@ import NavbarComponent from "./components/NavbarComponent";
 
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import CardsPanelPage from "./pages/CardsPanelPage";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/" exact component={HomePage}></Route>
         {/*http://localhost:3000/login */}
         <Route path="/login" component={LoginPage} />
+        {/*http://localhost:3000/cardspanel */}
+        <Route path="/cardspanel" component={CardsPanelPage} />
       </Switch>
     </div>
   );

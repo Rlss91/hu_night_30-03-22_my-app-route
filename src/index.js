@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 // add bootstrap to react
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -12,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+import store from "./store/index.redux";
 
 //axios config
 //axios will add this url to each request if the url is not full
@@ -33,9 +36,11 @@ axios.interceptors.request.use((config) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
