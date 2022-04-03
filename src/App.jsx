@@ -3,9 +3,11 @@ import { Switch, Route } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
 
+import AuthGuardRoute from "./AuthGurad/AuthGuardRoute";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import CardsPanelPage from "./pages/CardsPanelPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         {/*http://localhost:3000/login */}
         <Route path="/login" component={LoginPage} />
         {/*http://localhost:3000/cardspanel */}
-        <Route path="/cardspanel" component={CardsPanelPage} />
+        <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} />
+
+        <Route path="*" component={NotFoundPage} />
       </Switch>
     </div>
   );
