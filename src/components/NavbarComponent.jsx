@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import NavbarItemComponent from "./partial/NavbarItemComponent";
 
-const linksArr = ["Home", "Contact", "About us"];
+const linksArr = ["Home", "Contact", "About us", "Counter"];
 
 const NavbarComponent = () => {
   //redux
