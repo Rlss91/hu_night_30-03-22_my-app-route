@@ -1,24 +1,24 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-const linksArr = ["Home", "Contact", "About us", "Login"];
+import NavbarItemComponent from "./partial/NavbarItemComponent";
+
+const linksArr = ["Home", "Contact", "About us"];
 
 const NavbarComponent = () => {
+  //redux
+  //redux - get state
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
   return (
     <ul className="nav">
       {linksArr.map((item, idx) => {
-        return (
-          <li className="nav-item" key={idx}>
-            {/* in react we not using a tag we will use NavLink instead */}
-            <NavLink
-              className="nav-link"
-              aria-current="page"
-              to={`/${item.toLowerCase()}`}
-            >
-              {item}
-            </NavLink>
-          </li>
-        );
+        return <NavbarItemComponent key={idx} link={item} />;
       })}
+      {loggedIn ? (
+        <NavbarItemComponent link="Logout" />
+      ) : (
+        <NavbarItemComponent link="Login" />
+      )}
     </ul>
   );
 };
