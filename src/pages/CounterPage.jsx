@@ -1,14 +1,14 @@
-import CounterBtnsComponent from "../components/CounterTxtComponent";
-import CounterTxtComponent from "../components/CounterBtnsComponent";
+import CounterBtnsComponent from "../components/CounterBtnsComponent";
+import CounterTxtComponent from "../components/CounterTxtComponent";
 
 const CounterPage = () => {
   return (
     <div className="row">
       <div className="col">
-        <CounterBtnsComponent />
+        <CounterTxtComponent />
       </div>
       <div className="col">
-        <CounterTxtComponent />
+        <CounterBtnsComponent />
       </div>
     </div>
   );

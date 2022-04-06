@@ -14,6 +14,12 @@ const counterSlice = createSlice({
     sub1(state) {
       state.count--;
     },
+    addNumber(state, action) {
+      state.count += action.payload;
+    },
+    subNumber(state, action) {
+      state.count -= action.payload;
+    },
   },
 });
 
