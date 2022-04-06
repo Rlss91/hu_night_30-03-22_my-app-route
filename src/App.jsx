@@ -10,6 +10,7 @@ import CardsPanelPage from "./pages/CardsPanelPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CounterPage from "./pages/CounterPage";
 import CardsNumberPage from "./pages/CardsNumberPage";
+import QueryParamsPage from "./pages/QueryParamsPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} />
         <Route path="/counter" component={CounterPage} />
         <Route path="/cardsnumber" component={CardsNumberPage} />
+        <Route path="/qparams" component={QueryParamsPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </div>
