@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import CardsPanelPage from "./pages/CardsPanelPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CounterPage from "./pages/CounterPage";
+import CardsNumberPage from "./pages/CardsNumberPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/*http://localhost:3000/cardspanel */}
         <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} />
         <Route path="/counter" component={CounterPage} />
+        <Route path="/cardsnumber" component={CardsNumberPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </div>
