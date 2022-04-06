@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import CounterPage from "./pages/CounterPage";
 import CardsNumberPage from "./pages/CardsNumberPage";
 import QueryParamsPage from "./pages/QueryParamsPage";
+import ParamsPage from "./pages/ParamsPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/counter" component={CounterPage} />
         <Route path="/cardsnumber" component={CardsNumberPage} />
         <Route path="/qparams" component={QueryParamsPage} />
+        <Route path="/params/:key" component={ParamsPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </div>
