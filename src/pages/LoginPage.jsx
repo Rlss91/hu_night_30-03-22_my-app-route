@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -12,6 +12,8 @@ const LoginPage = () => {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
+  const focusRef = useRef();
+
   //routes
   const history = useHistory();
 
@@ -24,6 +26,11 @@ const LoginPage = () => {
   const handlePasswordChange = (ev) => {
     setPasswordInput(ev.target.value);
   };
+
+  useEffect(() => {
+    focusRef.current.focus();
+  }, []);
+
   const handleSubmit = (ev) => {
     //prevent refresh because react alerjic to refresh
     ev.preventDefault();
@@ -77,6 +84,7 @@ const LoginPage = () => {
           aria-describedby="emailHelp"
           value={emailInput}
           onChange={handleEmailChange}
+          ref={focusRef}
         />
         <div id="emailHelp" className="form-text">
           We'll never share your email with anyone else.
