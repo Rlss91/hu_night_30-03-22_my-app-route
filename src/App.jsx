@@ -12,6 +12,7 @@ import CounterPage from "./pages/CounterPage";
 import CardsNumberPage from "./pages/CardsNumberPage";
 import QueryParamsPage from "./pages/QueryParamsPage";
 import ParamsPage from "./pages/ParamsPage";
+import UseCallBackPage from "./pages/UseCallBackPage";
 import { Redirect } from "react-router-dom";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/cardsnumber" component={CardsNumberPage} />
         <Route path="/qparams" component={QueryParamsPage} />
         <Route path="/params/:key" component={ParamsPage} />
+        <Route path="/usecallbackpage" component={UseCallBackPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </div>
