@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "./NavbarItemComponent.css";
 const NavbarItemComponent = (props) => {
   return (
     <li className="nav-item">
@@ -6,7 +7,8 @@ const NavbarItemComponent = (props) => {
       <NavLink
         className="nav-link"
         aria-current="page"
-        to={`/${props.link.toLowerCase()}`}
+        to={`/${props.link.replace(" ", "").toLocaleLowerCase()}`}
+        activeClassName="active-link"
       >
         {props.link}
       </NavLink>

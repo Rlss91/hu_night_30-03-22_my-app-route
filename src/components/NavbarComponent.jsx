@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import NavbarItemComponent from "./partial/NavbarItemComponent";
+import NavbarItemComponent from "./partial/NavbarItemComponent/NavbarItemComponent";
 
 const linksArr = ["Home", "Contact", "About us", "Counter"];
 

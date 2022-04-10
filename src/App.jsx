@@ -12,6 +12,7 @@ import CounterPage from "./pages/CounterPage";
 import CardsNumberPage from "./pages/CardsNumberPage";
 import QueryParamsPage from "./pages/QueryParamsPage";
 import ParamsPage from "./pages/ParamsPage";
+import { Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -21,7 +22,10 @@ function App() {
       <ToastContainer />
       <Switch>
         {/*http://localhost:3000/ */}
-        <Route path="/" exact component={HomePage}></Route>
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/home" exact component={HomePage}></Route>
         {/*http://localhost:3000/login */}
         <Route path="/login" component={LoginPage} />
         {/*http://localhost:3000/cardspanel */}
