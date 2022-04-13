@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import { Switch, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
 
@@ -13,9 +14,12 @@ import CardsNumberPage from "./pages/CardsNumberPage";
 import QueryParamsPage from "./pages/QueryParamsPage";
 import ParamsPage from "./pages/ParamsPage";
 import UseCallBackPage from "./pages/UseCallBackPage";
-import { Redirect } from "react-router-dom";
+
+import useRandomNumber from "./hooks/useRandomNumber";
 
 function App() {
+  const rndNumber = useRandomNumber(50, 100);
+
   return (
     <div className="container">
       <NavbarComponent />
@@ -38,6 +42,7 @@ function App() {
         <Route path="/usecallbackpage" component={UseCallBackPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
+      <h3>{rndNumber}</h3>
     </div>
   );
 }
