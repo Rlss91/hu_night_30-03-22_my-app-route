@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { cloneDeep } from "lodash";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import CardComponent from "../components/CardComponent";
@@ -10,7 +10,7 @@ const CardsPanelPage = () => {
   const [showSpinner, setShowSpinner] = useState(false);
   const [dataArr, setDataArr] = useState([]);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("dataArr changed");
@@ -36,7 +36,7 @@ const CardsPanelPage = () => {
     }, 3000);
   };
   const handleGotoClick = () => {
-    history.push("/cardsnumber", { cardsNumber: dataArr.length });
+    navigate("/cardsnumber", { state: { cardsNumber: dataArr.length } });
   };
   return (
     <div>

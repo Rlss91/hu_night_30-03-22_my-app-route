@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Joi from "joi-browser";
 import axios from "axios";
@@ -15,7 +15,7 @@ const LoginPage = () => {
   const focusRef = useRef();
 
   //routes
-  const history = useHistory();
+  const navigate = useNavigate();
 
   //redux
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const LoginPage = () => {
           //save token from server to local storage
           localStorage.setItem("tokenKey", response.data.token);
           dispatch(authActions.login());
-          history.push("/cardspanel");
+          navigate("/cardspanel");
         })
         .catch((err) => {
           console.log("err.request", err.request);

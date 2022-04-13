@@ -1,6 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
 
@@ -25,23 +24,21 @@ function App() {
       <NavbarComponent />
       {/* will popup toast alerts here */}
       <ToastContainer />
-      <Switch>
+      <Routes>
         {/*http://localhost:3000/ */}
-        <Route path="/" exact>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" exact component={HomePage}></Route>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<HomePage />}></Route>
         {/*http://localhost:3000/login */}
-        <Route path="/login" component={LoginPage} />
+        <Route path="/login" element={<LoginPage />} />
         {/*http://localhost:3000/cardspanel */}
         <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} />
-        <Route path="/counter" component={CounterPage} />
-        <Route path="/cardsnumber" component={CardsNumberPage} />
-        <Route path="/qparams" component={QueryParamsPage} />
-        <Route path="/params/:key" component={ParamsPage} />
-        <Route path="/usecallbackpage" component={UseCallBackPage} />
-        <Route path="*" component={NotFoundPage} />
-      </Switch>
+        <Route path="/counter" element={<CounterPage />} />
+        <Route path="/cardsnumber" element={<CardsNumberPage />} />
+        <Route path="/qparams" element={<QueryParamsPage />} />
+        <Route path="/params/:key" element={<ParamsPage />} />
+        <Route path="/usecallbackpage" element={<UseCallBackPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <h3>{rndNumber}</h3>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
@@ -7,13 +7,7 @@ const AuthGuardRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={(props) => {
-        return loggedIn === true ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        );
-      }}
+      element={loggedIn === true ? <Component /> : <Navigate to="/login" />}
     />
   );
 };
