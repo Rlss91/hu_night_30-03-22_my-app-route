@@ -31,7 +31,10 @@ function App() {
         {/*http://localhost:3000/login */}
         <Route path="/login" element={<LoginPage />} />
         {/*http://localhost:3000/cardspanel */}
-        <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} />
+        {/* <AuthGuardRoute path="/cardspanel" component={CardsPanelPage} /> */}
+        <Route path="/cardspanel" element={<AuthGuardRoute />}>
+          <Route element={<CardsPanelPage />} />
+        </Route>
         <Route path="/counter" element={<CounterPage />} />
         <Route path="/cardsnumber" element={<CardsNumberPage />} />
         <Route path="/qparams" element={<QueryParamsPage />} />
